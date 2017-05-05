@@ -56,4 +56,35 @@ router.post('/newuser', (req, res) => {
   });
 });
 
+router.get('/edit:id', (req, res) => {
+  res.render('edit', {title: 'Edit user', id: req.params.id});
+});
+
+router.put('/edituser:id', (req, res) => {
+  MongoClient.connect(url, (err, db) => {
+    if (err) {
+      console.log('Unable to connect', err)
+    } else {
+      console.log('Connected to server');
+      var user1 = {
+        id: req.params.id,
+        user: req.body.user, 
+        email: req.body.email, 
+        password: req.body.password,
+        avatar: req.body.avatar
+      };
+      db
+      .collection('users')
+      .findOne({id});
+      db
+      .collection('users')
+      .update([user1], (err, res) => {
+        if (err) console.log(err)
+        res.redirect("users")
+      });
+      db.close;
+    }
+  });
+});
+
 module.exports = router;

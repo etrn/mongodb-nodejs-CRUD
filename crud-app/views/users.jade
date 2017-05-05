@@ -6,4 +6,6 @@ block content
     ul
       each user, i in users
         li#user_list_item
-          a(href="#") #{user.user} avatar #{user.avatar}, email #{user.email}
+          a(href="/edit:"+ {user.id}) #{user.user}, email #{user.email}
+          div.imagetable
+            img(src=user.avatar)
