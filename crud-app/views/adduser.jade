@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    h3= title
+    form#form_add_user(name="newuser", method="post", action="/newuser")
+        span Name
+        span &nbsp;
+        input#input_name(type="text", placeholder="Name", name="user")
+        br
+        br
+        span Email
+        span &nbsp;
+        input#input_email(type="email", placeholder="Email", name="email")
+        br
+        br
+        span Password
+        span &nbsp;
+        input#input_password(type="password", placeholder="Password", name="password")
+        br
+        br
+        span Avatar
+        span &nbsp;
+        input#input_avatar(type="text", placeholder="Link for avatar", name="avatar")
+        br
+        br
+        button#submit_user(type="submit") submit

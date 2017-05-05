@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h3.
+      Users
+    ul
+      each user, i in users
+        li#user_list_item
+          a(href="#") #{user.user} avatar #{user.avatar}, email #{user.email}
