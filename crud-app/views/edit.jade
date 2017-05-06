@@ -2,7 +2,7 @@ extends layout
 
 block content
     h3= title
-    form#form_add_user(name="edituser", method="put", action="/edituser")
+    form#form_add_user(name="edituser", method="put", action="/edituser:#{id}")
         h1= id
         span Name
         span &nbsp;

@@ -67,7 +67,7 @@ router.put('/edituser:id', (req, res) => {
     } else {
       console.log('Connected to server');
       var user1 = {
-        id: req.params.id,
+        _id: req.params.id,
         user: req.body.user, 
         email: req.body.email, 
         password: req.body.password,
@@ -75,10 +75,7 @@ router.put('/edituser:id', (req, res) => {
       };
       db
       .collection('users')
-      .findOne({id});
-      db
-      .collection('users')
-      .update([user1], (err, res) => {
+      .updateOne([user1], (err, res) => {
         if (err) console.log(err)
         res.redirect("users")
       });
